@@ -21,18 +21,18 @@ function debounce(timeout, callback) {
 // .enable / .disable
 // ------------------
 
-document
-  .getElementById('toggle-state-button')
-  .addEventListener('click', async () => {
-    // Use the isEnabled method to read the action's current state.
-    let actionEnabled = await chrome.action.isEnabled();
-    // when the button is clicked negate the state
-    if (actionEnabled) {
-      chrome.action.disable();
-    } else {
-      chrome.action.enable();
-    }
-  });
+// document
+//   .getElementById('toggle-state-button')
+//   .addEventListener('click', async () => {
+//     // Use the isEnabled method to read the action's current state.
+//     let actionEnabled = await chrome.action.isEnabled();
+//     // when the button is clicked negate the state
+//     if (actionEnabled) {
+//       chrome.action.disable();
+//     } else {
+//       chrome.action.enable();
+//     }
+//   });
 
 document
   .getElementById('popup-options')
@@ -285,6 +285,26 @@ document
     chrome.action.setTitle({ title });
 
     showActionTitle();
+  });
+
+async function showActionTitle() {
+  let title = await chrome.action.getTitle({});
+
+  // If empty, the title falls back to the name of the extension
+  if (title === '') {
+    // … which we can get from the extension's manifest
+    const manifest = chrome.runtime.getManifest();
+    title = manifest.name;
+  }
+
+  document.getElementById('current-title').value = title;
+}
+
+
+document
+  .getElementById('to_shortcut')
+  .addEventListener('click', async () => {
+    chrome.tabs.create({ url: 'chrome://extensions/shortcuts' });
   });
 
 async function showActionTitle() {
