@@ -12,7 +12,7 @@
   <body>
     <main>
       <section>
-        <h1>Action API Demo</h1>
+        <h1>扩展设置</h1>
         <p>
           Before experimenting with these APIs, we recommend you pin the
           extension's action button to your toolbar in order to make it easier
@@ -22,38 +22,22 @@
       </section>
 
       <section id="toggle-state">
-        <h2>enable / disable</h2>
+        <h2>是否设置快捷键</h2>
 
         <p>
-          Clicking the below <em>toggle enabled state</em> button will enable or
-          disable the extensions' action button in Chrome's toolbar and
-          extensions menu.
+          快捷键 触发 本扩展 功能
         </p>
 
         <p>
-          When disabled, clicking the action will not open a popup or trigger
-          <a
-            href="https://developer.chrome.com/docs/extensions/reference/action/#event-onClicked"
-            ><code>action.onClicked</code></a
-          >
-          events.
+          点击按钮去设置 => 
+          <button id="to_shortcut">click here</button>
         </p>
 
-        <button id="toggle-state-button">toggle enabled state</button>
+        <button id="toggle-state-button" style="display:none;" ></button>
 
-        <div class="flex">
-          <figure>
-            <img src="../images/action-enabled.png" />
-            <figcaption>Action enabled</figcaption>
-          </figure>
-          <figure>
-            <img src="../images/action-disabled.png" />
-            <figcaption>Action disabled</figcaption>
-          </figure>
-        </div>
       </section>
 
-      <section id="popup">
+      <section id="popup" hidden = "true">
         <h2>Popup</h2>
 
         <p>
@@ -94,7 +78,7 @@
 
       <!-- badge -->
 
-      <section id="badge-text">
+      <section id="badge-text" hidden = "true">
         <h2>Badge Text</h2>
 
         <p>
@@ -136,7 +120,7 @@
         </div>
       </section>
       <!-- Badge Text Color !-->
-      <section>
+      <section hidden = "true">
         <h2>Badge Text Color</h2>
         <p>
           The
@@ -175,8 +159,8 @@
 
       <!-- badge - icon -->
 
-      <section id="setIcon">
-        <h2>Icon</h2>
+      <section id="setIcon" hidden = "true">
+        <h2 hidden = "true" >Icon</h2>
 
         <p>
           The
@@ -197,7 +181,7 @@
 
       <!-- badge - hover text (title) -->
 
-      <section id="title">
+      <section id="title" hidden = "true">
         <h2>Hover Text</h2>
 
         <p>
@@ -234,16 +218,7 @@
           <button id="reset-title-button">reset title</button>
         </div>
 
-        <div class="flex">
-          <figure>
-            <img src="../images/title-no-hover.png" />
-            <figcaption>Default appearance</figcaption>
-          </figure>
-          <figure>
-            <img src="../images/title-hover.png" />
-            <figcaption>Title appears on hover</figcaption>
-          </figure>
-        </div>
+ 
       </section>
     </main>
   </body>
