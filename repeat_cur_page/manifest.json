@@ -1,19 +1,28 @@
 {
-  "name": "Action API Demo",
+  "name": "重复打开当前tab",
   "version": "1.0",
-  "description": "Uses the Action API to change the badge text, icon, hover text, or popup page.",
+  "description": "重复打开当前tab,很简单的功能",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
+  },
+
+  "commands": {
+    "reopen-cur-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "重复打开当前tab"
+    }
   },
   "permissions": [
     "activeTab",
     "tabs"
   ],
 
-
   "action": {
-    "default_title": "Default Title",
+    "default_title": "重复打开当前tab",
     "default_popup": "popups/popup.html",
     "default_icon": {
       "32": "icons/32.png",
